@@ -1,0 +1,23 @@
+.profile__add {
+    width: 100%;
+    height: 50px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: .5s;
+    background-image: url("../../../images/Add Button.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+}
+
+.profile__add:hover {
+    opacity: 60%;
+}
+
+@media screen and (max-width: 650px) {
+    .profile__add {
+        background-image: url("../../../images/Add Button (1).svg");
+    }
+}

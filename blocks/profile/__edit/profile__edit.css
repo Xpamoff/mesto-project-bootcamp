@@ -1,0 +1,21 @@
+.profile__edit {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.profile__edit:hover {
+    opacity: 60%;
+}
+
+@media screen and (max-width: 650px) {
+    .profile__edit {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        right: -28px;
+        bottom: 0;
+    }
+}

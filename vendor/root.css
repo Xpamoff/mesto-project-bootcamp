@@ -1,0 +1,23 @@
+:root {
+    --bg-black: #000000;
+    --header-line: #545454;
+    --page-width: 880px;
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --page-width: 600px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    :root {
+        --page-width: 400px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    :root {
+        --page-width: 282px;
+    }
+}
