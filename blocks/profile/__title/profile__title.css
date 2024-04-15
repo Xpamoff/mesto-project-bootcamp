@@ -6,13 +6,17 @@
     text-align: left;
     color: white;
     margin: 0 18px 16px 0;
-    display: inline-block;
+    max-width: 400px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 1000px) {
     .profile__title {
         font-size: 27px;
         line-height: 32.68px;
+        max-width: 200px;
     }
 }
 

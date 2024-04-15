@@ -4,6 +4,12 @@
     object-fit: cover;
     cursor: pointer;
     transition: .5s;
+    background-image: url("../../../images/Edit Button.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
 }
 
 .profile__edit:hover {
@@ -14,8 +20,5 @@
     .profile__edit {
         width: 18px;
         height: 18px;
-        position: absolute;
-        right: -28px;
-        bottom: 0;
     }
 }

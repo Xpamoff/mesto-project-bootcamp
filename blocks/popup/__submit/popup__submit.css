@@ -10,6 +10,11 @@
     border: none;
     transition: .5s;
     cursor: pointer;
+    color: white;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: center;
 }
 
 .popup__submit:hover {
@@ -19,5 +24,7 @@
 @media screen and (max-width: 650px) {
     .popup__submit {
         margin: 15px 0 0 0;
+        font-size: 14px;
+        line-height: 16.94px;
     }
 }
