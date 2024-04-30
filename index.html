@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Место</title>
     <link rel="stylesheet" href="pages/index.css">
+    <script defer src="scripts/main.js"></script>
 </head>
 <body class="page">
 <header class="header">
@@ -27,76 +28,64 @@
         <button type="button" class="profile__add"></button>
     </section>
     <section class="elements">
-        <article class="element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Карачаевск</h2>
-                    <button type="button" class="element__like"></button>
+        <template id="card">
+            <article class="element">
+                <img src="images/karachaevsk.jpg" alt="Карачаевск" class="element__photo">
+                <div class="element__content">
+                    <div class="element__field">
+                        <h2 class="element__title">Карачаевск</h2>
+                        <button type="button" class="element__like"></button>
+                    </div>
                 </div>
-            </div>
-        </article>
-        <article class="element">
-            <img src="images/elbrus.jpg" alt="Гора Эльбрус" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-        </article>
-        <article class="element">
-            <img src="images/dombay.jpg" alt="Домбай" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Домбай</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-        </article>
-        <article class="element">
-            <img src="images/elbrus.jpg" alt="Гора Эльбрус" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Гора Эльбрус</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-        </article>
-        <article class="element">
-            <img src="images/dombay.jpg" alt="Домбай" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Домбай</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-        </article>
-        <article class="element">
-            <img src="images/karachaevsk.jpg" alt="Карачаевск" class="element__photo">
-            <div class="element__content">
-                <div class="element__field">
-                    <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <button type="button" class="element__like"></button>
-                </div>
-            </div>
-        </article>
+                <button type="button" class="element__delete"></button>
+            </article>
+        </template>
     </section>
 </main>
 <footer class="footer">
     <h3 class="footer__title">© 2020 Mesto Russia</h3>
 </footer>
-<div class="popup">
+<div class="popup popup_mode_edit">
     <div class="popup__container">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form action="/" method="post" name="profile-form">
-            <input type="text" class="popup__input popup__input_type_name" value="Жак-Ив Кусто" name="title">
-            <input type="text" class="popup__input popup__input_type_name" value="Исследователь океана" name="subtitle">
-            <button type="submit" class="popup__submit">
+        <h3 class="popup__title popup__title_mode_edit">Редактировать профиль</h3>
+        <form action="/" method="post" name="profile-form" class="popup__form_mode_edit">
+            <input type="text"
+                   class="popup__input popup__input_type_name popup__input_mode_edit popup__input_name_title"
+                   value="Жак-Ив Кусто" name="title">
+            <input type="text"
+                   class="popup__input popup__input_type_name popup__input_mode_edit popup__input_name_subtitle"
+                   value="Исследователь океана" name="subtitle">
+            <button type="submit" class="popup__submit popup__submit_mode_edit">
                 Сохранить
             </button>
         </form>
-        <button type="button" class="popup__close"></button>
+        <button type="button" class="popup__close popup__close_mode_edit"></button>
+    </div>
+</div>
+
+<div class="popup popup_mode_add">
+    <div class="popup__container">
+        <h3 class="popup__title popup__title_mode_add">Новое место</h3>
+        <form action="/" method="post" name="profile-form" class="popup__form_mode_add">
+            <input type="text"
+                   class="popup__input popup__input_type_name popup__input_mode_add popup__input_name_name"
+                   placeholder="Название" name="name">
+            <input type="text"
+                   class="popup__input popup__input_type_name popup__input_mode_add popup__input_name_link"
+                   placeholder="Ссылка на картинку" name="link">
+            <button type="submit" class="popup__submit popup__submit_mode_add">
+                Создать
+            </button>
+        </form>
+        <button type="button" class="popup__close popup__close_mode_add"></button>
+    </div>
+</div>
+
+<div class="popup popup_mode_view">
+    <div class="popup__view">
+        <img src="images/karachaevsk.jpg" alt="Карачаевск" class="popup__image">
+        <button type="button" class="popup__close popup__close_mode_view"></button>
+        <div class="popup__description">Карачаево-Черкессия</div>
     </div>
 </div>
 </body>
