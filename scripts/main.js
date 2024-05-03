@@ -49,29 +49,25 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const cardField = document.querySelector(".elements");
 const cardTemplate = document.querySelector('#card').content;
 
+const openPopup = (popup) => {
+    popup.classList.add("popup_opened");
+}
+
+const closePopup = (popup) => {
+    popup.classList.remove("popup_opened");
+}
+
 const openPopupEdit = () => {
     inputTitle.value = profileTitle.textContent;
     inputSubtitle.value = profileSubtitle.textContent;
-    popupEdit.className = "popup popup_mode_edit popup_opened";
-}
-
-const closePopupEdit = () => {
-    popupEdit.className = "popup popup_mode_edit";
+    openPopup(popupEdit);
 }
 
 const savePopupEdit = (evt) => {
     evt.preventDefault();
     profileTitle.textContent = inputTitle.value;
     profileSubtitle.textContent = inputSubtitle.value;
-    closePopupEdit();
-}
-
-const openPopupAdd = () => {
-    popupAdd.className = "popup popup_mode_add popup_opened";
-}
-
-const closePopupAdd = () => {
-    popupAdd.className = "popup popup_mode_edit";
+    closePopup(popupEdit);
 }
 
 const savePopupAdd = (evt) => {
@@ -79,40 +75,36 @@ const savePopupAdd = (evt) => {
     addElem(inputName.value, inputLink.value);
     inputName.value = "";
     inputLink.value = "";
-    closePopupAdd();
+    closePopup(popupAdd);
 }
 
 const openPopupView = (evt) => {
-    evt.preventDefault();
     const elem = evt.target.closest(".element")
     const src = elem.querySelector(".element__photo").src;
     const description = elem.querySelector(".element__title").textContent;
     popupViewImage.src = src;
+    popupViewImage.alt = description;
     popupViewDescription.textContent = description;
-    popupView.className = "popup popup_mode_view popup_opened";
-}
-
-const closePopupView = () => {
-    popupView.className = "popup popup_mode_view";
+    openPopup(popupView);
 }
 
 const handleLike = (evt) => {
-    evt.preventDefault();
     evt.target.classList.toggle("element__like_action_active");
 }
 
 const handleDelete = (evt) => {
-    evt.preventDefault();
     evt.target.closest(".element").remove();
 }
 
 const createCard = (name, link) => {
-    const cardElement = cardTemplate.cloneNode(true);
-    cardElement.querySelector(".element__photo").src = link;
+    const cardElement = cardTemplate.querySelector(".element").cloneNode(true);
+    const cardElementImage = cardElement.querySelector(".element__photo");
+    cardElementImage.src = link;
+    cardElementImage.alt = name;
     cardElement.querySelector(".element__title").textContent = name;
     cardElement.querySelector(".element__like").addEventListener("click", handleLike);
     cardElement.querySelector(".element__delete").addEventListener("click", handleDelete);
-    cardElement.querySelector(".element__photo").addEventListener("click", openPopupView);
+    cardElementImage.addEventListener("click", openPopupView);
     return cardElement;
 }
 
@@ -127,13 +119,13 @@ const init = () => {
 }
 
 editBtn.addEventListener('click', openPopupEdit)
-popupEditCloseBtn.addEventListener('click', closePopupEdit)
+popupEditCloseBtn.addEventListener('click', () => closePopup(popupEdit));
 popupEditForm.addEventListener('submit', savePopupEdit)
 
-addBtn.addEventListener("click", openPopupAdd);
-popupAddCloseBtn.addEventListener('click', closePopupAdd);
+addBtn.addEventListener("click", () => openPopup(popupAdd));
+popupAddCloseBtn.addEventListener('click', () => closePopup(popupAdd));
 popupAddForm.addEventListener('submit', savePopupAdd);
 
-popupViewCloseBtn.addEventListener("click", closePopupView);
+popupViewCloseBtn.addEventListener("click", () => closePopup(popupView));
 
 init();

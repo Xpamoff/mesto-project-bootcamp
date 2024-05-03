@@ -34,6 +34,7 @@
 @import url("../blocks/popup/__view/popup__view.css");
 @import url("../blocks/popup/__image/popup__image.css");
 @import url("../blocks/popup/__description/popup__description.css");
+@import url("../blocks/popup/_mode/popup_mode_view.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 
 @import url("../blocks/profile/profile.css");
